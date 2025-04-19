@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+	
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+    <div class="card shadow-sm">
+        <div class="card-header d-flex justify-content-between">
+            <h5>My Tasks</h5>
+            <a href="{% url 'add_task' %}" class="btn btn-sm btn-primary">+Add Task</a>
+            </div>
+            <div class="card-body">
+                {% for task in tasks %}
+              <div class="d-flex justify-content-between border-bottom py-3"></div>
+        <div>
+            <input type="checkbox" class="form-check-input me-2"
+            {% if task.completed %} checked {% endif %}>
+        {{ task.title}}
+        </div>
+            </div>
+
+            <span class="badge bg-{% if task.priority == 'H' %}danger{% else %}warning{% endif %}">
+            {% if task.priority == 'H' %} High {% else %} Low {% endif %}
+            </span>
+<span class="badge bg-{% url 'edit_task' task.id %}" class="btn btn-sm"></span>
+        </div>
+
+    </div>
+</div>
+</div>
+
+
