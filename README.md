@@ -17,8 +17,8 @@
 
 
 # UX Design <a id="ux-design">
-UX design :
-   1. User Persona
+
+## 👤 User Persona
 Name: Lia Addison
 Age: 25
 Occupation: University Student
