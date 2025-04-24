@@ -61,6 +61,10 @@ Findings:
      - Implement drag-and-drop functionality in future updates
      - Improve filter reset UI for clarity
      - Consider adding recurring task options.
+ 
+UX Mockup
+![UX mockup](https://github.com/user-attachments/assets/337584cb-c580-4441-aa3b-b40b2f19c36d)
+
   
   
 #README: CineLens(http://localhost:5501/) [CineLens]
