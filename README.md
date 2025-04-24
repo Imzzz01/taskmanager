@@ -1,4 +1,5 @@
 ## Table of Contents
+- [UX Design](#ux-design)
 - [Purpose of Project](#purpose)
 - [Target Audience](#target-audience)
 - [User Query](#user-query)
@@ -14,9 +15,29 @@
 - [Deployment](#deployment)
 - [Getting Started](#getting-started)
 
-## Links For UX Design | Gant chart | Test Plan
 
+# UX Design <a id="ux-design">
+UX design :
+   1. User Persona
+Name: Lia Addison
+Age: 25
+Occupation: University Student
+Tech Savviness: Intermediate
 
+Goals: 
+   - Efficiently manage academic and extracurricular tasks
+   - Prioritise assignments based on deadlines
+   - Stay organised and reduce stress.
+
+Frustrations:
+   - Overwhelmed by multiple tasks with varying deadlines
+   - Difficulty tracking progress across different categories
+   - Needs a tool that adapts to both academic and personal tasks.
+
+Behavior:
+   - Uses a smartphone and laptop daily
+   - Prefers apps with intuitive interfaces and minimal setup
+   - Values features like task categorisation, due dates, priority indicators.
 
 #README: CineLens(http://localhost:5501/) [CineLens]
 # Purpose of Project <a id="purpose"></a>
