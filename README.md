@@ -11,8 +11,8 @@
 - [Validation](#validator)
 - [Commit Messages](#internal-and-external-code)
 - [Finished Project](#finished-project)
-- 
 - [Deployment](#deployment)
+- [Getting Started](#getting-started)
 
 ## Links For UX Design | Gant chart | Test Plan
 
