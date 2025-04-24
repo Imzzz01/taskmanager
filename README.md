@@ -42,6 +42,27 @@ Behavior:
    - Prefers apps with intuitive interfaces and minimal setup
    - Values features like task categorisation, due dates, priority indicators.
 
+# User Journey <a id="user-journey"></a>
+
+UX test 
+
+Test Participants: 5 University students
+
+Findings:
+- Positive
+     - Each task creation process
+     - Effective use of categories for organisation
+     - Clear priority indicators
+- Challenges:
+     - Desire for drag-and-drop task reordering
+     - Confusion with filter reset functionality
+     - Request for recurring task feature.
+- Actionable Insights:
+     - Implement drag-and-drop functionality in future updates
+     - Improve filter reset UI for clarity
+     - Consider adding recurring task options.
+  
+  
 #README: CineLens(http://localhost:5501/) [CineLens]
 # Purpose of Project <a id="purpose"></a>
 
