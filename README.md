@@ -6,6 +6,7 @@
 - [Technologies used](#technologies)
 - [Future Enhancements](#future-enhancements)
 - [Design Rationale](#design-rationale)
+- [Code Implementation](#code-implementation)
 - [Internal and External Code](#internal-and-external-code)
 - [Validation](#validator)
 - [Commit Messages](#internal-and-external-code)
@@ -154,6 +155,31 @@ User Experience:
 - Porgressive Disclosure: Advanced features hidden until needed
 - Immediate Feedback: Visual responses to user actions
 - Minimal clicks: Efficient task management workflows
+
+# Code Implementation <a id="code-implementation"><a>
+
+Key Implementation Decisions
+1. Model Design
+   - Task model with priority choices and category relationship
+   - Separate category model for user-specific categorisation
+   - Proper foreign key relationships with cascading rules
+2. Form Handling
+   - Dynamic category filtering based on logged-in user
+   - Date input widgets for better UX
+   - ModelForms for efficient data handling
+3. View logic
+   - Class based views where appropriate
+   - Login-required decorator for security
+   - Efficient query filtering
+   - AJAX support for category creation
+4. Template Structure
+   - Base template for consistent layout
+   - Modular components(e.g., category modal)
+   - Conditional displays based on task states
+5. JavaScript Enhancements
+   - Task completion toggling via AJAX
+   - Dynamic category addition
+   - Modal handling
   
 # Internal and External Code <a id="internal-and-external-code"></a>
 
