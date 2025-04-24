@@ -44,7 +44,12 @@ The Task Manager is designed for:
 
 # User Query<a id="user-query"></a>
 
-
+This application addresses several user needs:
+- "How can I organise my growing list of tasks?"
+- "I need to prioritise my work - What's more important?"
+- "How can I remember all my deadlines in one place?"
+- "I want to see just my high-priority tasks for the day"
+- "How can I categorise my tasks for different projects?"
 
 
 # Features and Functionalities<a id="features"></a>
