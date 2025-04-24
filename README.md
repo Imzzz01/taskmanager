@@ -10,8 +10,8 @@
 - [Internal and External Code](#internal-and-external-code)
 - [Validation](#validator)
 - [Commit Messages](#internal-and-external-code)
-- [Principles of Manual and Automated Testing](#principles-of-manual-and-automated-testing)
 - [Finished Project](#finished-project)
+- 
 - [Deployment](#deployment)
 
 ## Links For UX Design | Gant chart | Test Plan
@@ -195,9 +195,6 @@ Key Implementation Decisions
 
 
 
-# Principles of Manual and Automated Testing <a id="principles-of-manual-and-automated-testing"></a>
-3.1 
-
 
 # Finish Project <a id="finished-project"></a>
 
@@ -206,26 +203,45 @@ Key Implementation Decisions
 
 # Deployment <a id="deployment"></a>
 
-This project was developed by using VSCODE, committed to git and pushed to Github.
+Development Setup
+1. VS- Terminal:  Clone the repository:
+ git clone https://github.com/Imzzz01/taskmanager.git
 
-To deploy this page to Github pages from it's GitHub repository.
+2. Create and activate a virtual environment:
+   - python -m venv venv
+   - venv\Scripts\activate
+     
+3. Install Dependencies
+   - pip install -r requirements.txt
 
-Follow these steps:
+4. Apply Migrations:
+   - python manage.py migrate
+  
+5. Create a superuser:
+   - python manage.py createsuperuser
 
-1. Log into GitHub
-2. There will be a list of repositories, make sure to choose cine-lens12.
-3. From the menu, on top of the page select settings.
-4. When you have done this, scroll down to pages section.
-5. Inside the pages there will be a Build and deployment section.
-6. Under source click the drop down menu, and select 'main' make sure the drop down next to main, you have selected root.
-7. Once you have selected main, the project will be deployed.
-8. Refresh the page, and the link will displayed above on the pages section.
-9. https://imzzz01.github.io/cine-lens12/
+6. Run the development server:
+   - python manage.py runserver
 
-How to run this project:
-1. Go to github repository(cine-lens12)
-2. Click the code button and copy the repository Url: https://github.com/Imzzz01/cine-lens12
-3. Open your terminal, and run bash
-4. Clone your repository open terminal and run git clone 
-5. Once my project opens up on VScode, run the project.
+# Getting started <a id="getting-started"></a>
+
+First-Time Use
+1. Register a new account or login
+2. Create your first task using the "+ Add Task" button
+3. Optionally create categories to organise your tasks
+4. Use filters to focus on specific tasks
+5. Mark Tasks complete as you finish them.
+
+Tips for Effective Use
+1. Prioritise: Use priority levels to highlight important tasks
+2. Categorise: Group related tasks for better organisation
+3. Date Tasks: Set due dates for time-sensitive items
+4. Filter: Use the filters to focus on what matters now
+5. Complete: Regularly mark finished tasks to keep your list current.
+
+
+
+
+
+
 
