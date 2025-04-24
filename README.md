@@ -19,10 +19,10 @@
 # UX Design <a id="ux-design">
 
 ## 👤 User Persona
-Name: Lia Addison
-Age: 25
-Occupation: University Student
-Tech Savviness: Intermediate
+[Name: Lia Addison]
+[Age: 25]
+[Occupation: University Student]
+[Tech Savviness: Intermediate]
 
 Goals: 
    - Efficiently manage academic and extracurricular tasks
