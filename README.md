@@ -109,12 +109,18 @@ Development tools
 - Git: Version control
 - VS code: Development environment
   
-- 
-
- 
-
 # Future enhancements <a id="future-enhancements"></a>
- 
+
+ 1. Task Sharing: Allow users to share tasks with others
+ 2. Recurring Tasks: Support for repeating tasks
+ 3. Calendar View: Alternative task visualisation
+ 4. File Attachments: Add files to tasks
+ 5. Email Reminders: Notifications for upcoming deadlines
+ 6. Team Collaboration: Multi-user task management
+ 7. Mobile App: Native application versions
+ 8. Dark mode: Alternate color scheme
+ 9. Task Templates: Predefined task structures.
+    
 
 
 # Design Rationale <a id="design-rationale"></a>
