@@ -93,6 +93,23 @@ Advanced Features
 
 # Technologies <a id="technologies"></a>
 
+Backend
+
+- Django: Python web framework for rapid development
+- Python
+- Django Authentication: Secure user management.
+
+Frontend
+- HTML: Structure of my project
+- Bootstrap 5: Responsive CSS framework
+- Javascript: Interactive elements and AJAX
+- CSS3: Custom styling and animations.
+
+Development tools
+- Git: Version control
+- VS code: Development environment
+  
+- 
 
  
 
