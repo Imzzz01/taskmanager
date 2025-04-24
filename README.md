@@ -127,23 +127,34 @@ Development tools
 
 Design Overview:
 
-
+This application follows a clean, minimalist design focused on usability and efficieny. The layout emphasises the task list while providing easy access to filters and actions.
 
 Color scheme:
 
+- Primary: Bootstrap blue (#od6efd) for main actions
+- Priority Indicators:
+  - High: Red (#dc3545)
+  - Medium: Orange (#fd7e14)
+  - Low: Gray (#6c757d)
+- Completed Tasks: Light gray with strikethrough
+- Overdue Tasks: Red text with bold styling
 
-
-Type of fonts used: 
-
+Typography: 
+- Primary Font:
+- Headings: Bold Bootstrap defaults
+- Body Text: Clean, readable sans-serif
 
 Layout:
-
+- Two column design on desktop (filters + tasks)
+- Stacked layout on mobile for better small-screen use
+- Card-based UI for clear information grouping
+- Consistent spacing with Bootstrap's padding system.
 
 User Experience:
-
-
-
-
+- Porgressive Disclosure: Advanced features hidden until needed
+- Immediate Feedback: Visual responses to user actions
+- Minimal clicks: Efficient task management workflows
+  
 # Internal and External Code <a id="internal-and-external-code"></a>
 
 
