@@ -31,9 +31,15 @@ Key Objectives:
 - Support task completion tracking and overdue notifications.
 
 
-
 # Target Audience<a id="target-audience"></a>
 
+The Task Manager is designed for:
+
+- Professionals needing to organise work tasks and deadlines.
+- Students managing academic assignments and projects.
+- Individuals looking to improve personal productivity.
+- Teams requiring a simple task tracking solution
+- Anyone seeking a clean, efficient way to manage daily responsibiities.
 
 
 # User Query<a id="user-query"></a>
