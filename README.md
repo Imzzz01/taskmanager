@@ -54,8 +54,46 @@ This application addresses several user needs:
 
 # Features and Functionalities<a id="features"></a>
 
+Core Features
+1. Task Management
+  - Create, edit, and delete tasks
+  - Mark tasks as complete/incomplete
+  - Set priorities(High/Medium/Low)
+  - Add descriptions and due dates
+  - Categorise tasks for better organisation.
+
+2. User Experience
+   - Responsive design for all device sizes
+   - Intuitive dashboard with task overview
+   - Visual indicators for priority and overdue tasks
+   - Smooth animations for task completion
+  
+3. Filtering & Search
+   - Filter by priority level
+   - Filter by category
+   - Searcg by task title
+   - Reset filters easily
+
+4. Category Management
+   - Create custom categories
+   - Assign tasks to categories
+   - Filter tasks by category
+
+5. User Authentication
+   - Secure Login/Logout
+   - User-specific task isolation
+   - Personalised Dashboard
+  
+Advanced Features
+- Ajax-powered category creation
+- Client-side date formatting
+- Task completion animations
+- Overdue task highlighting
+- Responsive design with Bootstrap 5
 
 # Technologies <a id="technologies"></a>
+
+
  
 
 # Future enhancements <a id="future-enhancements"></a>
