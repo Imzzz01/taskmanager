@@ -21,6 +21,7 @@
 ## 👤 User Persona
 
 | **Attribute** | **Details**        |
+|---------------|--------------------|
 | Name          | Lia Addison        |
 | Age           | 25                 |
 | Occupation    | University Student |
