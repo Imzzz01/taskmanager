@@ -9,3 +9,13 @@ class TaskForm(forms.ModelForm):
             "due_date": forms.DateInput(attrs={"type": "date"}),
             "description": forms.Textarea(attrs={"rows": 3}),
         }
+
+        def __init__(self, user, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.fields("category").queryset = Category.objects.filter(user=user)
+
+    class CategoryForm(forms.ModelForm):
+        class Meta:
+            model = Category
+            fields = ["name"]
+            
