@@ -6,15 +6,8 @@ from .models import Task, Category
 from .forms import TaskForm, CategoryForm
 # Create your views here.
 
-@login_required
 def dashboard(request):
-    task = Task.objects.filter(user=request.user)
-
-# filtering
-
-priority = request.GET.get("priority")
-if priority:
-    tasks = tasks.filter(priority=priority)
+    return render(request, 'taskmanager/templates/dashboard.html')
 
 
 
@@ -23,12 +16,3 @@ if priority:
 
 
 
-
-
-
-
-
-
-
-def task_list(request):
-    return render(request, 'taskmanager/task_list.html')
