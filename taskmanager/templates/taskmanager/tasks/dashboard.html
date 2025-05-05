@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "taskmanager/base.html" %}
 	
 {% block content %}
    <div class="container mt-4">
@@ -21,9 +21,9 @@
 
         <div class="mb-3">
             <label class="form-label">Category</label>
-            <select name="category" id="form-select"></select>
+            <select name="category" id="form-select">
             <option value="">All</option>
-            {% for category in category rises %} 
+            {% for category in categories %} 
             <option value="{{ category.id }}">
             {% if request.GET.category == category.id|stringformat:"s" %}selected{% endif %}>
             {{ category.name }}
@@ -52,7 +52,7 @@
 
         </div>
          <div class="list-group list-group-flush">
-            {% for category in category rises %} 
+            {% for category in categories %} 
             <a href="?category={{ category.id }}" class="list-group-item list-group-item-action {% if request.GET.category == category.id|stringformat:"s" %}active{% endif %}">
             {{ category.name }}
             </a>
