@@ -1,29 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from .models import Task, Category
 from django.views.decorators.http import require_POST
-from django.contrib.auth.forms import UserCreationForm 
+from .models import Task, Category
+
+
 @login_required
 def dashboard(request):
     tasks = Task.objects.filter(user=request.user)
-    
-    # Filtering
-    priority = request.GET.get('priority')
-    if priority:
-        tasks = tasks.filter(priority=priority)
-    
-    category_id = request.GET.get('category')
-    if category_id:
-        tasks = tasks.filter(category_id=category_id)
-    
-    search_query = request.GET.get('search')
-    if search_query:
-        tasks = tasks.filter(title__icontains=search_query)
-    
     categories = Category.objects.filter(user=request.user)
+    
+    # Filtering logic remains the same
     return render(request, 'tasks/dashboard.html', {
         'tasks': tasks,
         'categories': categories

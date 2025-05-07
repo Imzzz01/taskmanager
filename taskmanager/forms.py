@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django import forms
 from .models import Task, Category
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task

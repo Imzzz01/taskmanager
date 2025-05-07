@@ -18,11 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('taskmanager.urls')),  # Now include() will work
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', RedirectView.as_view(url='dashboard/', permanent=True)),
+    path('', include('taskmanager.urls')),
 ]
