@@ -1,8 +1,6 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from django import forms
 from .models import Task, Category
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
@@ -12,11 +10,11 @@ class TaskForm(forms.ModelForm):
             "description": forms.Textarea(attrs={"rows": 3}),
         }
 
-        def __init__(self, user, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            self.fields("category").queryset = Category.objects.filter(user=user)
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['category'].queryset = Category.objects.filter(user=user)
 
-    class CategoryForm(forms.ModelForm):
-        class Meta:
-            model = Category
-            fields = ["name"]
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ["name"]

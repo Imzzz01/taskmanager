@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from .models import Task, Category
-
+from .forms import TaskForm, CategoryForm 
 
 @login_required
 def dashboard(request):
@@ -85,3 +85,4 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+    return render(request, 'tasks/confirm_delete.html', {'task': task})
