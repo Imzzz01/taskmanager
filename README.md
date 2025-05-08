@@ -246,7 +246,13 @@ Key Implementation Decisions
 
 
 # Finish Project <a id="finished-project"></a>
+![image](https://github.com/user-attachments/assets/1df39577-90c0-4eb9-8913-eedbb707b9ed)
 
+![image](https://github.com/user-attachments/assets/402fe339-e2c3-4a3d-a355-23973ad7a49c)
+
+![image](https://github.com/user-attachments/assets/43cf18d6-c1b9-47ca-9c21-242e922351b2)
+
+![image](https://github.com/user-attachments/assets/dbc75bc9-c5aa-44e9-adc8-dc44352ebb57)
 
 
 
