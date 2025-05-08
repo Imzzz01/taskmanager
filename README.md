@@ -241,6 +241,7 @@ Key Implementation Decisions
 
 
 # Commit Messages <a id="commit-messages"></a>
+![image](https://github.com/user-attachments/assets/88f635b2-b7a8-4472-9df6-ffd40d692400)
 
 
 
