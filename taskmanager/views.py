@@ -7,15 +7,35 @@ from django.views.decorators.http import require_POST
 from .models import Task, Category
 from .forms import TaskForm, CategoryForm 
 
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
+    redirect_authenticated_user = True
+    
 @login_required
 def dashboard(request):
-    tasks = Task.objects.filter(user=request.user)
+    tasks = Task.objects.filter(user=request.user).order_by('-created_at')
     categories = Category.objects.filter(user=request.user)
     
+    priority = request.GET.get('priority', '')
+    category_id = request.GET.get('category', '')
+    search = request.GET.get('search', '')
+
+    if priority:
+        tasks = tasks.filter(priority=priority)
+    if category_id:
+        tasks = tasks.filter(category_id=category_id)
+    if search:
+        tasks = tasks.filter(title__icontains=search)
+   
     # Filtering logic remains the same
-    return render(request, 'tasks/dashboard.html', {
+    return render(request, 'taskmanager/dashboard.html', {
         'tasks': tasks,
-        'categories': categories
+        'categories': categories,
+        'current_priority': priority,
+        'current_category': category_id,
+        'current_search': search 
+
+        
     })
 
 @login_required
@@ -30,7 +50,7 @@ def add_task(request):
     else:
         form = TaskForm(request.user)
     
-    return render(request, 'tasks/task_form.html', {'form': form})
+    return render(request, 'taskmanager/task_form.html', {'form': form})
 
 @login_required
 def edit_task(request, task_id):
@@ -43,7 +63,7 @@ def edit_task(request, task_id):
     else:
         form = TaskForm(request.user, instance=task)
     
-    return render(request, 'tasks/task_form.html', {'form': form})
+    return render(request, 'taskmanager/task_form.html', {'form': form})
 
 @login_required
 def delete_task(request, task_id):
@@ -51,7 +71,7 @@ def delete_task(request, task_id):
     if request.method == 'POST':
         task.delete()
         return redirect('dashboard')
-    return render(request, 'tasks/confirm_delete.html', {'task': task})
+    return render(request, 'taskmanager/confirm_delete.html', {'task': task})
 
 @login_required
 def toggle_task(request, task_id):
@@ -75,6 +95,32 @@ def add_category(request):
         })
     return JsonResponse({'success': False})
 
+@login_required
+def edit_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id, user=request.user)
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return JsonResponse({'success': True})
+            return redirect('dashboard')
+    else:
+        form = CategoryForm(instance=category)
+    
+    return render(request, 'taskmanager/category_form.html', {'form': form})
+
+@login_required
+def delete_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id, user=request.user)
+    if request.method == 'POST':
+        category.delete()
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return JsonResponse({'success': True})
+        return redirect('dashboard')
+    return render(request, 'taskmanager/confirm_delete.html', {'category': category})
+
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -85,4 +131,4 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
-    return render(request, 'tasks/confirm_delete.html', {'task': task})
+  

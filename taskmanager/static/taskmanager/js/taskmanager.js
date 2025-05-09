@@ -55,6 +55,30 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
+    document.querySelectorAll(".edit-category-btn").forEach(btn => {
+        btn.addEventListener("click", function(e) {
+            e.preventDefault();
+            const categoryId = this.dataset.categoryId;
+            fetch(`/category/edit/${categoryId}/`)
+            .then(response => response.text())
+            .then(html => {
+                const modal = document.getElementById("categoryModal");
+                modal.querySelector(".modal-content").innerHTML = html;
+                const bsModal = new bootstrap.Modal(modal);
+                bsModal.show();
+            })
+        });
+        });
+
+        document.querySelectorAll(".delete-category-btn").forEach(btn => {
+            btn.addEventListener("click", function(e) {
+             if (!confirm("Are you sure you want to delete this category?")) {
+                e.preventDefault();
+             }
+            });
+        });
+
+
     // Attach category filter event listeners
     document.querySelectorAll(".category-filter").forEach(filter => {
         filter.addEventListener("click", function(e){
