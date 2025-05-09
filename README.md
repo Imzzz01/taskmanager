@@ -232,6 +232,45 @@ Key Implementation Decisions
   
 # Internal and External Code <a id="internal-and-external-code"></a>
 
+Backend:
+
+I have built the core fuctionality using Django's powerful framework. 
+
+1. Data organisation(Models)
+   - Our category model lets users create personalised groups like ("study", "work", "shopping" etc) 
+   - The task model handles all tasks details and smart features:
+      - A three-tier priority system(High/Medium/Low) that drives visual cues.
+      - Optional due dates with automatic overdue detection
+      - Flexible categorisation that persists even if categories change.
+
+2. Logic and processing (views)
+   - Specialised views handle every user action:
+      - A smart task listers that filters by priority or category
+      - A secure creation/editing workflows with form validation
+      - An efficient completion toggle that updates instantly via AJAX
+
+3. User Interface (Templates)
+   - Dynamic pages that adapt to your data:
+      - Automatic priority coloring (red for urgent tasks)
+      - Clean card-based layouts with hover actions
+      - Interactive modals or adding categories without page reloads
+    
+Frontend: The Interactive Experience
+- Javascript:
+   - Instant task completion toggles
+   - Smooth category creation popups
+
+- Custom styling:
+   - Clear visual hierarchy( priority colors, due date prominence)
+   - Mobile-friendly designs that work on any device
+   - Pleasant animations for completed tasks
+
+Essential Frameworks:
+- Django provides the secure foundation for user accounts and data handling
+- Bootstrap 5 ensures professional, consistent interfaces
+
+
+  
 
 
 # Validation <a id="validator"></a>
