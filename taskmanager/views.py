@@ -6,9 +6,11 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from .models import Task, Category
 from .forms import TaskForm, CategoryForm 
+from django.contrib.auth import views as auth_views
 
-class CustomLoginView(LoginView):
-    template_name = 'registration/login.html'
+
+class CustomLoginView(auth_views.LoginView):
+    template_name = 'registration/login.html'  
     redirect_authenticated_user = True
     
 @login_required

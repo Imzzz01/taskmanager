@@ -121,8 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # For production
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'taskmanager/static'),  # Points to app's static dir
+    os.path.join(BASE_DIR, 'taskmanager/static'),  # Your app's static files
 ]
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
