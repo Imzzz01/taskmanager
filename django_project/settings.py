@@ -24,10 +24,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-^#*e(g*m6op4@be*n-h-j+@qzkq6*v-xyu8*%vspy^xpuj#xm^"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ and 'RAILWAY_ENVIRONMENT' not in os.environ
 
 ALLOWED_HOSTS = []
 
+if 'RAILWAY_STATIC_URL' in os.environ:
+    ALLOWED_HOSTS.extend([
+        os.environ.get('RAILWAY_STATIC_URL', '').replace('https://', '').replace('http://', ''),
+        '.railway.app',
+    ])
+
+# Add any other domains you want to support
+if 'ALLOWED_HOSTS' in os.environ:
+    ALLOWED_HOSTS.extend(os.environ.get('ALLOWED_HOSTS').split(','))
 
 # Application definition
 
@@ -78,6 +87,13 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
+   if os.environ.get('DATABASE_URL'):
+    # Railway automatically provides the DATABASE_URL environment variable
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    }
+else:
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
