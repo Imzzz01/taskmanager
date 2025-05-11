@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 const taskId = this.dataset.taskId;
                 const taskItem = this.closest(".list-group-item");
 
-                fetch(`/toggle/${taskId}/`, {
+                fetch(`/task/toggle/${taskId}/`, {
                     method: "POST",
                     headers: {
                         'X-CSRFToken': getCookie('csrftoken'),
@@ -30,10 +30,16 @@ document.addEventListener("DOMContentLoaded", function(){
         });
 
         // Delete Confirmation
-        document.querySelectorAll(".btn-delete").forEach(button => {
+        document.querySelectorAll(".btn-outline-danger").forEach(button => {
             button.addEventListener("click", function(e) {
-                if (!confirm("Are you sure you want to delete this task?")) {
+                if (this.textContent.trim() === "Delete" && !confirm("Are you sure you want to delete this task?")) {
                     e.preventDefault();
+                } else if (this.textContent.trim() === "Delete" && confirm("Are you sure you want to delete this task?")) {
+                    // Allow default action (navigation to delete URL)
+                } else if (this.textContent.trim() === "Delete Category" && !confirm("Are you sure you want to delete this category?")) {
+                    e.preventDefault();
+                } else if (this.textContent.trim() === "Delete Category" && confirm("Are you sure you want to delete this category?")) {
+                    // Allow default action for category deletion
                 }
             });
         });
@@ -59,7 +65,8 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     // Handle Edit Category buttons
-    if (document.querySelectorAll(".edit-category-btn").length > 0) {
+    const categoryModal = document.getElementById("categoryModal");
+    if (document.querySelectorAll(".edit-category-btn").length > 0 && categoryModal) {
         document.querySelectorAll(".edit-category-btn").forEach(btn => {
             btn.addEventListener("click", function(e) {
                 e.preventDefault();
@@ -67,11 +74,13 @@ document.addEventListener("DOMContentLoaded", function(){
                 fetch(`/category/edit/${categoryId}/`)
                 .then(response => response.text())
                 .then(html => {
-                    const modal = document.getElementById("categoryModal");
-                    if (modal) {
-                        modal.querySelector(".modal-content").innerHTML = html;
-                        const bsModal = new bootstrap.Modal(modal);
-                        bsModal.show();
+                    categoryModal.querySelector(".modal-content").innerHTML = html;
+                    const bsModal = new bootstrap.Modal(categoryModal);
+                    bsModal.show();
+                    // Re-attach event listener for the edit category form inside the modal
+                    const editCategoryForm = document.getElementById("category-form");
+                    if (editCategoryForm) {
+                        editCategoryForm.addEventListener("submit", handleCategoryFormSubmit);
                     }
                 })
                 .catch(error => {
@@ -81,52 +90,62 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
-    // Handle Delete Category buttons
-    if (document.querySelectorAll(".delete-category-btn").length > 0) {
-        document.querySelectorAll(".delete-category-btn").forEach(btn => {
-            btn.addEventListener("click", function(e) {
-                if (!confirm("Are you sure you want to delete this category?")) {
-                    e.preventDefault();
-                }
-            });
-        });
-    }
-
     // Category Add Button
     const addCategoryBtn = document.getElementById("add-category-btn");
-    const categoryModal = document.getElementById("categoryModal");
-    
+
     if (addCategoryBtn && categoryModal) {
         addCategoryBtn.addEventListener("click", function() {
+            // Clear the modal content and set title for adding
+            categoryModal.querySelector(".modal-content").innerHTML = `
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="category-form" method="post" action="/category/add/">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="category-name" class="form-label">Category Name</label>
+                            <input type="text" class="form-control" id="category-name" name="name" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            `;
             const bsModal = new bootstrap.Modal(categoryModal);
             bsModal.show();
+            // Attach event listener for the add category form inside the modal
+            const addCategoryForm = document.getElementById("category-form");
+            if (addCategoryForm) {
+                addCategoryForm.addEventListener("submit", handleCategoryFormSubmit);
+            }
         });
     }
 
-    // Ajax category form submission
-    const categoryForm = document.getElementById("category-form");
-    if (categoryForm) {
-        categoryForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-
-            fetch(this.action, {
-                method: 'POST',
-                body: new FormData(this),
-                headers: {
-                    "X-CSRFToken": getCookie('csrftoken'),
-                    "X-Requested-With": "XMLHttpRequest",
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Reload the page to show the new category
-                    window.location.reload();
-                }
-            })
-            .catch(error => {
-                console.error("Error submitting category form:", error);
-            });
+    // Ajax category form submission handler (for both add and edit)
+    function handleCategoryFormSubmit(e) {
+        e.preventDefault();
+        const form = this;
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                "X-CSRFToken": getCookie('csrftoken'),
+                "X-Requested-With": "XMLHttpRequest",
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.reload();
+            } else {
+                // Handle errors (e.g., display error messages in the modal)
+                console.error("Error submitting category form:", data);
+                // You might want to update the modal to show errors
+            }
+        })
+        .catch(error => {
+            console.error("Error submitting category form:", error);
         });
     }
 

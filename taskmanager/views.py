@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -5,40 +6,39 @@ from django.contrib.auth import login, logout
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from .models import Task, Category
-from .forms import TaskForm, CategoryForm 
+from .forms import TaskForm, CategoryForm
 from django.contrib.auth import views as auth_views
 
-
 class CustomLoginView(auth_views.LoginView):
-    template_name = 'registration/login.html'  
+    template_name = 'registration/login.html'
     redirect_authenticated_user = True
-    
+
 @login_required
 def dashboard(request):
     tasks = Task.objects.filter(user=request.user).order_by('-created_at')
     categories = Category.objects.filter(user=request.user)
-    
+    category_form = CategoryForm()
+
     priority = request.GET.get('priority', '')
     category_id = request.GET.get('category', '')
-    search = request.GET.get('search', '')
+    search_query = request.GET.get('search', '')  # Changed variable name
 
     if priority:
         tasks = tasks.filter(priority=priority)
     if category_id:
         tasks = tasks.filter(category_id=category_id)
-    if search:
-        tasks = tasks.filter(title__icontains=search)
-   
-    # Filtering logic remains the same
-    return render(request, 'taskmanager/dashboard.html', {
+    if search_query: # Apply the filter
+        tasks = tasks.filter(title__icontains=search_query)
+
+    context = {
         'tasks': tasks,
         'categories': categories,
+        'category_form': category_form,
         'current_priority': priority,
         'current_category': category_id,
-        'current_search': search 
-
-        
-    })
+        'current_search': search_query, 
+    }
+    return render(request, 'taskmanager/dashboard.html', context)
 
 @login_required
 def add_task(request):

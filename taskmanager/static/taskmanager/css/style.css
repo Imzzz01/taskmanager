@@ -12,7 +12,7 @@ body {
         display: flex;
         flex-wrap: wrap;
     }
-    
+
     .col-md-3 {
         flex: 0 0 300px;
         max-width: 300px;
@@ -21,7 +21,7 @@ body {
         padding-right: 15px;
         padding-left: 15px;
     }
-    
+
     .col-md-9 {
         flex: 1;
         max-width: calc(100% - 300px);
@@ -60,7 +60,7 @@ body {
 }
 
 /* Container */
-.container {
+.container-fluid {
     max-width: 1200px;
     padding: 20px;
 }
@@ -105,6 +105,9 @@ body {
     border-left: 3px solid transparent;
     transition: all 0.2s ease;
     padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .list-group-item:hover {
@@ -112,8 +115,14 @@ body {
     border-left-color: #2563eb;
 }
 
-/* Task Item Styling */
-.form-check-input.task-checkbox {
+.list-group-item > div:first-child {
+    flex-grow: 1;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.list-group-item > div:first-child > input[type="checkbox"] {
     margin-right: 15px;
     transform: scale(1.1);
 }
@@ -224,6 +233,9 @@ body {
 .list-group-flush .list-group-item {
     padding: 0.75rem 1.25rem;
     background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .list-group-flush .list-group-item:hover {
@@ -237,6 +249,17 @@ body {
     font-weight: 500;
 }
 
+.list-group-flush .list-group-item > a {
+    flex-grow: 1;
+    margin-right: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.list-group-flush .list-group-item > div.btn-group {
+    flex-shrink: 0;
+}
+
 /* Modal Styling */
 .modal-content {
     border: none;
@@ -248,6 +271,26 @@ body {
     border-bottom: 1px solid #eaeaea;
     background-color: #f8f9fa;
     border-radius: 8px 8px 0 0;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 1.25rem;
+}
+
+.modal-footer {
+    border-top: 1px solid #eaeaea;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 0 0 8px 8px;
+}
+
+.modal-footer > .btn {
+    margin-left: 0.5rem;
 }
 
 /* Animation for task completion */
