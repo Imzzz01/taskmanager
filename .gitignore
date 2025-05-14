@@ -21,10 +21,10 @@ var/
 .installed.cfg
 *.egg
 
+
 # Django
 *.log
 local_settings.py
-db.sqlite3
 db.sqlite3-journal
 media
 
@@ -37,6 +37,8 @@ media
 *.code-workspace
 .history/
 
+
+
 # Environments
 .env
 .venv
@@ -46,8 +48,7 @@ ENV/
 env.bak/
 venv.bak/
 
-# Static files
-staticfiles/
+
 
 # OS specific
 .DS_Store
