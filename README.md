@@ -9,7 +9,7 @@
 - [Design Rationale](#design-rationale)
 - [Code Implementation](#code-implementation)
 - [Internal and External Code](#internal-and-external-code)
-- [Validation](#validator)
+- [Test Plan](#test-plan)
 - [Commit Messages](#internal-and-external-code)
 - [Finished Project](#finished-project)
 - [Deployment](#deployment)
@@ -269,13 +269,9 @@ Essential Frameworks:
 - Django provides the secure foundation for user accounts and data handling
 - Bootstrap 5 ensures professional, consistent interfaces
 
+# Test Plan <a id="test-plan"></a>
 
-  
-
-
-# Validation <a id="validator"></a>
-
-
+[Test Plan-Taskmanager.docx](https://github.com/user-attachments/files/20213909/Test.Plan-Taskmanager.docx)
 
 
 
@@ -286,13 +282,9 @@ Essential Frameworks:
 
 
 # Finish Project <a id="finished-project"></a>
-![image](https://github.com/user-attachments/assets/1df39577-90c0-4eb9-8913-eedbb707b9ed)
-
-![image](https://github.com/user-attachments/assets/402fe339-e2c3-4a3d-a355-23973ad7a49c)
-
-![image](https://github.com/user-attachments/assets/43cf18d6-c1b9-47ca-9c21-242e922351b2)
-
-![image](https://github.com/user-attachments/assets/dbc75bc9-c5aa-44e9-adc8-dc44352ebb57)
+![image](https://github.com/user-attachments/assets/35684212-d58a-4fb1-b766-a58d4842cd11)
+![image](https://github.com/user-attachments/assets/2360b0af-8aee-4948-8a89-c3ccc06a510e)
+![image](https://github.com/user-attachments/assets/2002a824-58d7-4d34-84b9-db33f54abc23)
 
 
 
