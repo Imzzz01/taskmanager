@@ -15,6 +15,8 @@ load_dotenv()  # Add at the top of settings.py
 from pathlib import Path
 import os
 
+load_dotenv()  # Load .env file
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,19 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY", "your-default-insecure-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ and 'RAILWAY_ENVIRONMENT' not in os.environ
 
+DEBUG = os.getenv("DEBUG", "True") == "True"
 ALLOWED_HOSTS = []
 
-if 'RAILWAY_STATIC_URL' in os.environ:
-    ALLOWED_HOSTS.extend([
-        os.environ.get('RAILWAY_STATIC_URL', '').replace('https://', '').replace('http://', ''),
-        '.railway.app',
-    ])
 
-# Add any other domains you want to support
-if 'ALLOWED_HOSTS' in os.environ:
-    ALLOWED_HOSTS.extend(os.environ.get('ALLOWED_HOSTS').split(','))
 
 # Application definition
 
@@ -89,11 +83,12 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/tmp/db.sqlite3',  # Using /tmp for Heroku compatibility
     }
+}
+
 
 
 
