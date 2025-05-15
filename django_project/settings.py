@@ -30,7 +30,10 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your-default-insecure-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = os.getenv("DEBUG", "True") == "True"
-ALLOWED_HOSTS = ['taskmanagerapp1-09724463fbec.herokuapp.com',]
+ALLOWED_HOSTS = ['taskmanagerapp1-09724463fbec.herokuapp.com',
+ '127.0.0.1',
+'localhost',
+]
 
 
 
