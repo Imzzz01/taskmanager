@@ -11,6 +11,7 @@
 - [Internal and External Code](#internal-and-external-code)
 - [Test Plan](#test-plan)
 - [Commit Messages](#internal-and-external-code)
+- [HTML Validation](#html-validation)
 - [Finished Project](#finished-project)
 - [Deployment](#deployment)
 - [Getting Started](#getting-started)
@@ -285,9 +286,6 @@ Login / Register
 ![image](https://github.com/user-attachments/assets/120ed1a8-3b3a-41b4-9202-2c3ba01c6e28)
 
 
-
-
-![image](https://github.com/user-attachments/assets/172fa9a8-7ed5-4a72-816a-06f7220932f5)
 
 
 # Finish Project <a id="finished-project"></a>
