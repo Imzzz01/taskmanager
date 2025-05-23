@@ -130,7 +130,6 @@
             <div class="modal-body">
                 <form id="add-category-form" method="post" action="{% url 'add_category' %}">
                     {% csrf_token %}
-                    {{ category_form }}
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
