@@ -163,10 +163,10 @@
                 success: function(data) {
                     if (data.success) {
                         $('#categoryModal').modal('hide');
-                        // Update the categories list dynamically
+                       
                         $('.list-group-flush').append('<a href="?category=' + data.category_id + '" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">' + data.category_name + '<div class="btn-group btn-group-sm"><button class="btn btn-outline-secondary edit-category-btn" data-category-id="' + data.category_id + '" data-bs-toggle="modal" data-bs-target="#editCategoryModal-' + data.category_id + '">Edit</button><a href="/category/delete/' + data.category_id + '/" class="btn btn-outline-danger">Delete</a></div></a>');
-                        // You might need to re-initialize event listeners for new elements
-                        location.reload(); // For simplicity, a full reload might be sufficient for now
+                        
+                        location.reload(); 
                     } else {
                         alert('Error adding category.');
                     }
@@ -178,7 +178,7 @@
             });
         });
 
-        // You'll need similar AJAX for editing and deleting categories if you want to do it without page reload
+        
     });
 </script>
 {% endblock %}
