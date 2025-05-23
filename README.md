@@ -278,7 +278,16 @@ Essential Frameworks:
 # Commit Messages <a id="commit-messages"></a>
 ![image](https://github.com/user-attachments/assets/88f635b2-b7a8-4472-9df6-ffd40d692400)
 
+# Html Validation <a id="html-validation"></a>
 
+View Source - Html validation
+Login / Register
+![image](https://github.com/user-attachments/assets/120ed1a8-3b3a-41b4-9202-2c3ba01c6e28)
+
+
+
+
+![image](https://github.com/user-attachments/assets/172fa9a8-7ed5-4a72-816a-06f7220932f5)
 
 
 # Finish Project <a id="finished-project"></a>
