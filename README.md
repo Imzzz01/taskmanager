@@ -68,7 +68,7 @@ UX Mockup
 
   
   
-#README: CineLens(http://localhost:5501/) [CineLens]
+
 # Purpose of Project <a id="purpose"></a>
 
 The Task Manager is a comprehensive productivity application designed to help users organise, prioritise, and track their tasks efficiently. This Django-based web application provides a platform for managing personal and professional tasks with features like categorisation, priority setting, due date tracking and completion status.
