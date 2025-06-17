@@ -284,8 +284,20 @@ Essential Frameworks:
 View Source - Html validation
 Login / Register
 ![image](https://github.com/user-attachments/assets/120ed1a8-3b3a-41b4-9202-2c3ba01c6e28)
+![image](https://github.com/user-attachments/assets/0ecca8b1-eebe-4c51-90c1-f0cd01e1ffd4)
+
+Dashboard 
+
+![image](https://github.com/user-attachments/assets/128f0c6e-a139-46ef-a7a0-879194653424)
+
+Add Tasks 
+
+![image](https://github.com/user-attachments/assets/d9f61d9c-2f01-4da2-bb3b-ad6f3660486d)
 
 
+CSS validation
+
+![image](https://github.com/user-attachments/assets/db19fbfd-faea-48ef-8e74-91ca7a377649)
 
 
 # Finish Project <a id="finished-project"></a>
